@@ -106,11 +106,15 @@ startGame = () => {
     qCounter = 0;
     points = 0;
     allQuestions = [...questions];
-    console.log(allQuestions);
+    // console.log(allQuestions);
     newQuestion();
 }
 
 newQuestion = () => {
+
+    if(allQuestions.length == 0 || qCounter > maxQuestions){
+        return window.location.assign('/end.html')
+    }
     qCounter++;
     const questionOptions = Math.floor(Math.random() * allQuestions.length);
     theQuestion = allQuestions[questionOptions];
@@ -120,6 +124,31 @@ newQuestion = () => {
         const number = choice.dataset['number'];
         choice.innerText = theQuestion['choice' + number];
     });
+
+    allQuestions.splice(questionOptions, 1);
+
+    rightAnswers = true;
 };
+
+choices.forEach(choice => {
+    choice.addEventListener("click", e => {
+        if(!rightAnswers) return;
+
+        rightAnswers = false;
+        const pickedChoice = e.target;
+        const pickedAnswer = pickedChoice.dataset['number'];
+
+        const classApply = pickedAnswer ==theQuestion.answer ? 'correct' : 'incorrect';
+
+        console.log(classApply)
+
+        pickedChoice.parentElement.classList.add(classApply);
+        pickedChoice.parentElement.classList.remove(classApply);
+
+        newQuestion();
+
+        
+    });
+});
 
 startGame();

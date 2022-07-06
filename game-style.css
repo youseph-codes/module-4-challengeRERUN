@@ -13,11 +13,12 @@
     transition: 200ms;
 }
 
-.choice-letter{
+.choice-letter {
     padding: 10px 20px;
     background-color: #d2691e;
 }
 
 .choice-text {
     padding: 10px;
+    width: 100%;
 }
