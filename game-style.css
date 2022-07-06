@@ -1,18 +1,23 @@
 .choice-box {
     display: flex;
-    margin-bottom: 5px;
-    width: 100px;
+    margin-bottom: 10px;
+    width: 100%;
     font-size: 20px;
-    background-color: #545351;
-    align-items: center;
+    background-color: brown;
+    border: 3px solid #ffe4b5
 }
 
+.choice-box:hover {
+    cursor: pointer;
+    background-color: #d2691e;
+    transition: 200ms;
+}
 
+.choice {
+    padding: 10px 20px;
+    background-color: #d2691e;
+}
 
-/* .choice {
-    display: flex;
-    margin-bottom: 5px;
-    width: 100px;
-    font-size: 20px;
-    background-color: #7e6843;
-} */
+.choice-text {
+    padding: 10px;
+}
