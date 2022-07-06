@@ -1,5 +1,5 @@
 const question = document.getElementById('question')
-const choices = Array.from(document.getElementsByClassName('choice-test'));
+const choices = Array.from(document.getElementsByClassName('choice-text'));
 
 let theQuestion = {};
 let rightAnswers = true;
@@ -100,23 +100,26 @@ let questions = [
 ]
 
 const correctPoints = 10;
-const maxQuestions = 10;
+const maxQuestions = 11;
 
 startGame = () => {
     qCounter = 0;
     points = 0;
     allQuestions = [...questions];
+    console.log(allQuestions);
     newQuestion();
 }
 
 newQuestion = () => {
     qCounter++;
     const questionOptions = Math.floor(Math.random() * allQuestions.length);
-        theQuestion = allQuestions[questionOptions];
-        question.innerText = theQuestion.question;
-        
-}
+    theQuestion = allQuestions[questionOptions];
+    question.innerText = theQuestion.question;
 
-
+    choices.forEach(choice => {
+        const number = choice.dataset['number'];
+        choice.innerText = theQuestion['choice' + number];
+    });
+};
 
 startGame();
