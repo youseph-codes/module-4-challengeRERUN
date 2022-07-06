@@ -3,9 +3,9 @@ const choices = Array.from(document.getElementsByClassName('choice-test'));
 
 let theQuestion = {};
 let rightAnswers = true;
-let score = 0;
+let points = 0;
 let qCounter = 0;
-let allAnswers = [];
+let allQuestions = [];
 
 let questions = [
     {
@@ -100,4 +100,23 @@ let questions = [
 ]
 
 const correctPoints = 10;
-const
+const maxQuestions = 10;
+
+startGame = () => {
+    qCounter = 0;
+    points = 0;
+    allQuestions = [...questions];
+    newQuestion();
+}
+
+newQuestion = () => {
+    qCounter++;
+    const questionOptions = Math.floor(Math.random() * allQuestions.length);
+        theQuestion = allQuestions[questionOptions];
+        question.innerText = theQuestion.question;
+        
+}
+
+
+
+startGame();
