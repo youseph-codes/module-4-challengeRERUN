@@ -138,16 +138,15 @@ choices.forEach(choice => {
         const pickedChoice = e.target;
         const pickedAnswer = pickedChoice.dataset['number'];
 
-        const classApply = pickedAnswer ==theQuestion.answer ? 'correct' : 'incorrect';
+        const classApply = 
+        pickedAnswer == theQuestion.answer ? 'correct' : 'incorrect';
 
-        console.log(classApply)
+        pickedChoice.parentElement.classList.add('classApply');
 
-        pickedChoice.parentElement.classList.add(classApply);
-        pickedChoice.parentElement.classList.remove(classApply);
-
+        setTimeout( () => {
+        pickedChoice.parentElement.classList.remove('classApply');
         newQuestion();
-
-        
+        }, 1000);
     });
 });
 
