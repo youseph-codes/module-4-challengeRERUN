@@ -33,4 +33,9 @@
 
 #info {
     display: flex;
+    justify-content: space-between;
+}
+
+.info-text {
+    text-align: center;
 }
